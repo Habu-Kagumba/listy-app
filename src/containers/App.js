@@ -1,15 +1,23 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
 
-class App extends Component {
+import { getPosts } from '../redux/fetchActions'
+import Wrapper from '../components/Wrapper'
+
+const mapDispatchToProps = (dispatch) => (
+  {
+    getPosts: () => dispatch(getPosts())
+  }
+)
+
+export class App extends Component {
+  componentDidMount() {
+    this.props.getPosts()
+  }
+
   render() {
-    return (
-      <div>
-        <header className="App-header">
-          Listy Application
-        </header>
-      </div>
-    );
+    return <Wrapper/>
   }
 }
 
-export default App;
+export default connect(null, mapDispatchToProps)(App)
