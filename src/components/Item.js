@@ -1,28 +1,53 @@
 import React, { Component } from 'react';
 
+/**
+ * Item component
+ */
 class Item extends Component  {
+  /**
+   * constructor
+   * @param {object} props
+   */
   constructor(props) {
     super(props);
+    /**
+     * @type {object}
+     * @property {boolean} toggleInput
+     * @property {string} postTitle
+     */
     this.state = {
       toggleInput: false,
       postTitle: this.props.item.post.title
     }
   }
 
+  /**
+   * Deletes item
+   */
   deletePostItem() {
     this.props.deleteItem(this.props.item.post.id);
   }
 
+  /**
+   * Toggles Post Title field input form
+   */
   togglePostField() {
     this.setState({ toggleInput: !this.state.toggleInput });
   }
 
+  /**
+   * Handle Post title edit form event
+   * @param {SyntheticEvent} e
+   */
   onPostTitleChange(evt) {
     const value = evt.target.value;
 
     this.setState({ postTitle: value });
   }
 
+  /**
+   * Update post title
+   */
   updatePostItem(id, title) {
     this.props.updateItem(
       this.props.item.post.id,
@@ -32,6 +57,10 @@ class Item extends Component  {
     this.setState({ toggleInput: !this.state.toggleInput });
   }
 
+  /**
+   * render
+   * @return {ReactElement} markup
+   */
   render() {
     const { user, album, post } = this.props.item;
     let postField = null;

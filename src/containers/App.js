@@ -10,11 +10,22 @@ const mapDispatchToProps = (dispatch) => (
   }
 )
 
+/**
+ * Application Container Component
+ */
 export class App extends Component {
+
+  /**
+   * Hydrate the store with items from https://jsonplaceholder.typicode.com/
+   */
   componentDidMount() {
     this.props.getPosts()
   }
 
+  /**
+   * render
+   * @return {ReactElement} markup
+   */
   render() {
     return <Wrapper/>
   }

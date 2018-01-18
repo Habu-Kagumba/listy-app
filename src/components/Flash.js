@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
 
+/**
+ * Flash component
+ */
 class Flash extends Component {
+  /**
+   * Contructor
+   */
   constructor(props) {
     super(props)
     this.state = {
@@ -8,6 +14,9 @@ class Flash extends Component {
     }
   }
 
+  /**
+   * Setup timer to hide Component after delay
+   */
   componentDidMount() {
     this.timeout = setTimeout(() => {
       this.setState({
@@ -16,6 +25,9 @@ class Flash extends Component {
     }, 5000)
   }
 
+  /**
+   * Clear timeout set when rendering the component
+   */
   componentWillUnMount() {
     const { timeout } = this
 
@@ -24,12 +36,19 @@ class Flash extends Component {
     }
   }
 
+  /**
+   * Toggle visibility of Flash Component
+   */
   hideFlash() {
     this.setState({
       show: false
     })
   }
 
+  /**
+   * render
+   * @return {ReactElement} markup
+   */
   render() {
     return (
       <div>
