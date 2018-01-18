@@ -10,6 +10,11 @@ export const resources_paths = [
 ]
 const AVATAR_URL = 'https://api.adorable.io/avatars/200/'
 
+/**
+ * Status Handler
+ * @param {object} response
+ * @returns {Promise} resolve or reject if error
+ */
 function status(response) {
   if (response.status >= 200 && response.status < 300) {
     return Promise.resolve(response)
@@ -18,10 +23,20 @@ function status(response) {
   }
 }
 
+/**
+ * Json handler
+ * @param {object} response
+ * @return {object} parse response to JSON
+ */
 function json(response) {
   return response.json()
 }
 
+/**
+ * Transform data into required structure
+ * @param {array} data
+ * @return {object}
+ */
 function aggregateData(data) {
   const users = data[0]
   const albums = data[1]
@@ -52,6 +67,12 @@ function aggregateData(data) {
   })
 }
 
+/**
+ * fetch posts from https://jsonplaceholder.typicode.com/
+ * @emits {IS_LOADING}
+ * @emits {GET_ALL_ITEMS}
+ * @emits {SHOW_FLASH}
+ */
 export function getPosts() {
   return dispatch => {
     return Promise.all(_.map(resources_paths, (url) => {
@@ -76,6 +97,13 @@ export function getPosts() {
   }
 }
 
+/**
+ * update posts
+ * @param {integer}
+ * @emits {IS_LOADING}
+ * @emits {UPDATE_ITEM}
+ * @emits {SHOW_FLASH}
+ */
 export function updatePost(id, title) {
   return dispatch => {
     dispatch(actions.isLoading(true))

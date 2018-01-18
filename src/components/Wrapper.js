@@ -6,6 +6,9 @@ import Loading from './Loading'
 import Flash from './Flash'
 import Items from './Items'
 
+/**
+ * subscribe to Redux store updates
+ */
 const mapStateToProps = (state) => {
   return {
     isLoading: state.isLoading,
@@ -13,7 +16,15 @@ const mapStateToProps = (state) => {
   }
 }
 
+/**
+ * Wrapper Component
+ */
 export class Wrapper extends Component {
+
+  /**
+   * render
+   * @return {ReactElement} markup
+   */
   render() {
     const { isLoading, flash } = this.props
     const flashError = _.isUndefined(flash) ? false : flash.error
