@@ -72,5 +72,5 @@ npm run coverage
 The project uses ES-Lint, the command to link the project is:
 
 ```sh
-npm run link
+npm run lint
 ```
