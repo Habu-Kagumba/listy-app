@@ -1,11 +1,6 @@
 import React from 'react'
 import { mount } from 'enzyme'
-import { createStore } from 'redux'
-import { Provider } from 'react-redux'
-import configureStore from 'redux-mock-store'
 import Item from '../components/Item'
-import { rootReducer } from '../redux/reducers'
-import { isLoading, showFlash } from '../redux/actions'
 
 
 describe('Item Component', () => {
