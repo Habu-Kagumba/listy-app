@@ -16,7 +16,7 @@ for OS specific instructions, you can go thought this guide. [Installing Node](h
 
 An alternative is installing a version manager inorder to easily run different versions of node. My favorite is [asdf](https://github.com/asdf-vm/asdf).
 
-This project was developed with Node v8, while I suggest using the latest version.
+This project was developed with Node v8.
 
 ### Installing
 
